@@ -1,0 +1,3312 @@
+<?xml version="1.0"?>
+<block>
+  <name>osmocom Sink</name>
+  <key>osmosdr_sink</key>
+  <category>Sinks</category>
+  <throttle>1</throttle>
+  <import>import osmosdr</import>
+  <import>import time</import>
+  <make>osmosdr.sink( args="numchan=" + str($nchan) + " " + $args )
+#if $num_mboards() > 0 and $clock_source0()
+self.$(id).set_clock_source($clock_source0, 0)
+#end if
+#if $num_mboards() > 0 and $time_source0()
+self.$(id).set_time_source($time_source0, 0)
+#end if
+#if $num_mboards() > 1 and $clock_source1()
+self.$(id).set_clock_source($clock_source1, 1)
+#end if
+#if $num_mboards() > 1 and $time_source1()
+self.$(id).set_time_source($time_source1, 1)
+#end if
+#if $num_mboards() > 2 and $clock_source2()
+self.$(id).set_clock_source($clock_source2, 2)
+#end if
+#if $num_mboards() > 2 and $time_source2()
+self.$(id).set_time_source($time_source2, 2)
+#end if
+#if $num_mboards() > 3 and $clock_source3()
+self.$(id).set_clock_source($clock_source3, 3)
+#end if
+#if $num_mboards() > 3 and $time_source3()
+self.$(id).set_time_source($time_source3, 3)
+#end if
+#if $num_mboards() > 4 and $clock_source4()
+self.$(id).set_clock_source($clock_source4, 4)
+#end if
+#if $num_mboards() > 4 and $time_source4()
+self.$(id).set_time_source($time_source4, 4)
+#end if
+#if $num_mboards() > 5 and $clock_source5()
+self.$(id).set_clock_source($clock_source5, 5)
+#end if
+#if $num_mboards() > 5 and $time_source5()
+self.$(id).set_time_source($time_source5, 5)
+#end if
+#if $num_mboards() > 6 and $clock_source6()
+self.$(id).set_clock_source($clock_source6, 6)
+#end if
+#if $num_mboards() > 6 and $time_source6()
+self.$(id).set_time_source($time_source6, 6)
+#end if
+#if $num_mboards() > 7 and $clock_source7()
+self.$(id).set_clock_source($clock_source7, 7)
+#end if
+#if $num_mboards() > 7 and $time_source7()
+self.$(id).set_time_source($time_source7, 7)
+#end if
+#if $sync() == 'sync'
+self.$(id).set_time_unknown_pps(osmosdr.time_spec_t())
+#elif $sync() == 'pc_clock'
+self.$(id).set_time_now(osmosdr.time_spec_t(time.time()), osmosdr.ALL_MBOARDS)
+#end if
+self.$(id).set_sample_rate($sample_rate)
+#if $nchan() > 0
+self.$(id).set_center_freq($freq0, 0)
+self.$(id).set_freq_corr($corr0, 0)
+self.$(id).set_gain($gain0, 0)
+self.$(id).set_if_gain($if_gain0, 0)
+self.$(id).set_bb_gain($bb_gain0, 0)
+self.$(id).set_antenna($ant0, 0)
+self.$(id).set_bandwidth($bw0, 0)
+#end if
+#if $nchan() > 1
+self.$(id).set_center_freq($freq1, 1)
+self.$(id).set_freq_corr($corr1, 1)
+self.$(id).set_gain($gain1, 1)
+self.$(id).set_if_gain($if_gain1, 1)
+self.$(id).set_bb_gain($bb_gain1, 1)
+self.$(id).set_antenna($ant1, 1)
+self.$(id).set_bandwidth($bw1, 1)
+#end if
+#if $nchan() > 2
+self.$(id).set_center_freq($freq2, 2)
+self.$(id).set_freq_corr($corr2, 2)
+self.$(id).set_gain($gain2, 2)
+self.$(id).set_if_gain($if_gain2, 2)
+self.$(id).set_bb_gain($bb_gain2, 2)
+self.$(id).set_antenna($ant2, 2)
+self.$(id).set_bandwidth($bw2, 2)
+#end if
+#if $nchan() > 3
+self.$(id).set_center_freq($freq3, 3)
+self.$(id).set_freq_corr($corr3, 3)
+self.$(id).set_gain($gain3, 3)
+self.$(id).set_if_gain($if_gain3, 3)
+self.$(id).set_bb_gain($bb_gain3, 3)
+self.$(id).set_antenna($ant3, 3)
+self.$(id).set_bandwidth($bw3, 3)
+#end if
+#if $nchan() > 4
+self.$(id).set_center_freq($freq4, 4)
+self.$(id).set_freq_corr($corr4, 4)
+self.$(id).set_gain($gain4, 4)
+self.$(id).set_if_gain($if_gain4, 4)
+self.$(id).set_bb_gain($bb_gain4, 4)
+self.$(id).set_antenna($ant4, 4)
+self.$(id).set_bandwidth($bw4, 4)
+#end if
+#if $nchan() > 5
+self.$(id).set_center_freq($freq5, 5)
+self.$(id).set_freq_corr($corr5, 5)
+self.$(id).set_gain($gain5, 5)
+self.$(id).set_if_gain($if_gain5, 5)
+self.$(id).set_bb_gain($bb_gain5, 5)
+self.$(id).set_antenna($ant5, 5)
+self.$(id).set_bandwidth($bw5, 5)
+#end if
+#if $nchan() > 6
+self.$(id).set_center_freq($freq6, 6)
+self.$(id).set_freq_corr($corr6, 6)
+self.$(id).set_gain($gain6, 6)
+self.$(id).set_if_gain($if_gain6, 6)
+self.$(id).set_bb_gain($bb_gain6, 6)
+self.$(id).set_antenna($ant6, 6)
+self.$(id).set_bandwidth($bw6, 6)
+#end if
+#if $nchan() > 7
+self.$(id).set_center_freq($freq7, 7)
+self.$(id).set_freq_corr($corr7, 7)
+self.$(id).set_gain($gain7, 7)
+self.$(id).set_if_gain($if_gain7, 7)
+self.$(id).set_bb_gain($bb_gain7, 7)
+self.$(id).set_antenna($ant7, 7)
+self.$(id).set_bandwidth($bw7, 7)
+#end if
+#if $nchan() > 8
+self.$(id).set_center_freq($freq8, 8)
+self.$(id).set_freq_corr($corr8, 8)
+self.$(id).set_gain($gain8, 8)
+self.$(id).set_if_gain($if_gain8, 8)
+self.$(id).set_bb_gain($bb_gain8, 8)
+self.$(id).set_antenna($ant8, 8)
+self.$(id).set_bandwidth($bw8, 8)
+#end if
+#if $nchan() > 9
+self.$(id).set_center_freq($freq9, 9)
+self.$(id).set_freq_corr($corr9, 9)
+self.$(id).set_gain($gain9, 9)
+self.$(id).set_if_gain($if_gain9, 9)
+self.$(id).set_bb_gain($bb_gain9, 9)
+self.$(id).set_antenna($ant9, 9)
+self.$(id).set_bandwidth($bw9, 9)
+#end if
+#if $nchan() > 10
+self.$(id).set_center_freq($freq10, 10)
+self.$(id).set_freq_corr($corr10, 10)
+self.$(id).set_gain($gain10, 10)
+self.$(id).set_if_gain($if_gain10, 10)
+self.$(id).set_bb_gain($bb_gain10, 10)
+self.$(id).set_antenna($ant10, 10)
+self.$(id).set_bandwidth($bw10, 10)
+#end if
+#if $nchan() > 11
+self.$(id).set_center_freq($freq11, 11)
+self.$(id).set_freq_corr($corr11, 11)
+self.$(id).set_gain($gain11, 11)
+self.$(id).set_if_gain($if_gain11, 11)
+self.$(id).set_bb_gain($bb_gain11, 11)
+self.$(id).set_antenna($ant11, 11)
+self.$(id).set_bandwidth($bw11, 11)
+#end if
+#if $nchan() > 12
+self.$(id).set_center_freq($freq12, 12)
+self.$(id).set_freq_corr($corr12, 12)
+self.$(id).set_gain($gain12, 12)
+self.$(id).set_if_gain($if_gain12, 12)
+self.$(id).set_bb_gain($bb_gain12, 12)
+self.$(id).set_antenna($ant12, 12)
+self.$(id).set_bandwidth($bw12, 12)
+#end if
+#if $nchan() > 13
+self.$(id).set_center_freq($freq13, 13)
+self.$(id).set_freq_corr($corr13, 13)
+self.$(id).set_gain($gain13, 13)
+self.$(id).set_if_gain($if_gain13, 13)
+self.$(id).set_bb_gain($bb_gain13, 13)
+self.$(id).set_antenna($ant13, 13)
+self.$(id).set_bandwidth($bw13, 13)
+#end if
+#if $nchan() > 14
+self.$(id).set_center_freq($freq14, 14)
+self.$(id).set_freq_corr($corr14, 14)
+self.$(id).set_gain($gain14, 14)
+self.$(id).set_if_gain($if_gain14, 14)
+self.$(id).set_bb_gain($bb_gain14, 14)
+self.$(id).set_antenna($ant14, 14)
+self.$(id).set_bandwidth($bw14, 14)
+#end if
+#if $nchan() > 15
+self.$(id).set_center_freq($freq15, 15)
+self.$(id).set_freq_corr($corr15, 15)
+self.$(id).set_gain($gain15, 15)
+self.$(id).set_if_gain($if_gain15, 15)
+self.$(id).set_bb_gain($bb_gain15, 15)
+self.$(id).set_antenna($ant15, 15)
+self.$(id).set_bandwidth($bw15, 15)
+#end if
+#if $nchan() > 16
+self.$(id).set_center_freq($freq16, 16)
+self.$(id).set_freq_corr($corr16, 16)
+self.$(id).set_gain($gain16, 16)
+self.$(id).set_if_gain($if_gain16, 16)
+self.$(id).set_bb_gain($bb_gain16, 16)
+self.$(id).set_antenna($ant16, 16)
+self.$(id).set_bandwidth($bw16, 16)
+#end if
+#if $nchan() > 17
+self.$(id).set_center_freq($freq17, 17)
+self.$(id).set_freq_corr($corr17, 17)
+self.$(id).set_gain($gain17, 17)
+self.$(id).set_if_gain($if_gain17, 17)
+self.$(id).set_bb_gain($bb_gain17, 17)
+self.$(id).set_antenna($ant17, 17)
+self.$(id).set_bandwidth($bw17, 17)
+#end if
+#if $nchan() > 18
+self.$(id).set_center_freq($freq18, 18)
+self.$(id).set_freq_corr($corr18, 18)
+self.$(id).set_gain($gain18, 18)
+self.$(id).set_if_gain($if_gain18, 18)
+self.$(id).set_bb_gain($bb_gain18, 18)
+self.$(id).set_antenna($ant18, 18)
+self.$(id).set_bandwidth($bw18, 18)
+#end if
+#if $nchan() > 19
+self.$(id).set_center_freq($freq19, 19)
+self.$(id).set_freq_corr($corr19, 19)
+self.$(id).set_gain($gain19, 19)
+self.$(id).set_if_gain($if_gain19, 19)
+self.$(id).set_bb_gain($bb_gain19, 19)
+self.$(id).set_antenna($ant19, 19)
+self.$(id).set_bandwidth($bw19, 19)
+#end if
+#if $nchan() > 20
+self.$(id).set_center_freq($freq20, 20)
+self.$(id).set_freq_corr($corr20, 20)
+self.$(id).set_gain($gain20, 20)
+self.$(id).set_if_gain($if_gain20, 20)
+self.$(id).set_bb_gain($bb_gain20, 20)
+self.$(id).set_antenna($ant20, 20)
+self.$(id).set_bandwidth($bw20, 20)
+#end if
+#if $nchan() > 21
+self.$(id).set_center_freq($freq21, 21)
+self.$(id).set_freq_corr($corr21, 21)
+self.$(id).set_gain($gain21, 21)
+self.$(id).set_if_gain($if_gain21, 21)
+self.$(id).set_bb_gain($bb_gain21, 21)
+self.$(id).set_antenna($ant21, 21)
+self.$(id).set_bandwidth($bw21, 21)
+#end if
+#if $nchan() > 22
+self.$(id).set_center_freq($freq22, 22)
+self.$(id).set_freq_corr($corr22, 22)
+self.$(id).set_gain($gain22, 22)
+self.$(id).set_if_gain($if_gain22, 22)
+self.$(id).set_bb_gain($bb_gain22, 22)
+self.$(id).set_antenna($ant22, 22)
+self.$(id).set_bandwidth($bw22, 22)
+#end if
+#if $nchan() > 23
+self.$(id).set_center_freq($freq23, 23)
+self.$(id).set_freq_corr($corr23, 23)
+self.$(id).set_gain($gain23, 23)
+self.$(id).set_if_gain($if_gain23, 23)
+self.$(id).set_bb_gain($bb_gain23, 23)
+self.$(id).set_antenna($ant23, 23)
+self.$(id).set_bandwidth($bw23, 23)
+#end if
+#if $nchan() > 24
+self.$(id).set_center_freq($freq24, 24)
+self.$(id).set_freq_corr($corr24, 24)
+self.$(id).set_gain($gain24, 24)
+self.$(id).set_if_gain($if_gain24, 24)
+self.$(id).set_bb_gain($bb_gain24, 24)
+self.$(id).set_antenna($ant24, 24)
+self.$(id).set_bandwidth($bw24, 24)
+#end if
+#if $nchan() > 25
+self.$(id).set_center_freq($freq25, 25)
+self.$(id).set_freq_corr($corr25, 25)
+self.$(id).set_gain($gain25, 25)
+self.$(id).set_if_gain($if_gain25, 25)
+self.$(id).set_bb_gain($bb_gain25, 25)
+self.$(id).set_antenna($ant25, 25)
+self.$(id).set_bandwidth($bw25, 25)
+#end if
+#if $nchan() > 26
+self.$(id).set_center_freq($freq26, 26)
+self.$(id).set_freq_corr($corr26, 26)
+self.$(id).set_gain($gain26, 26)
+self.$(id).set_if_gain($if_gain26, 26)
+self.$(id).set_bb_gain($bb_gain26, 26)
+self.$(id).set_antenna($ant26, 26)
+self.$(id).set_bandwidth($bw26, 26)
+#end if
+#if $nchan() > 27
+self.$(id).set_center_freq($freq27, 27)
+self.$(id).set_freq_corr($corr27, 27)
+self.$(id).set_gain($gain27, 27)
+self.$(id).set_if_gain($if_gain27, 27)
+self.$(id).set_bb_gain($bb_gain27, 27)
+self.$(id).set_antenna($ant27, 27)
+self.$(id).set_bandwidth($bw27, 27)
+#end if
+#if $nchan() > 28
+self.$(id).set_center_freq($freq28, 28)
+self.$(id).set_freq_corr($corr28, 28)
+self.$(id).set_gain($gain28, 28)
+self.$(id).set_if_gain($if_gain28, 28)
+self.$(id).set_bb_gain($bb_gain28, 28)
+self.$(id).set_antenna($ant28, 28)
+self.$(id).set_bandwidth($bw28, 28)
+#end if
+#if $nchan() > 29
+self.$(id).set_center_freq($freq29, 29)
+self.$(id).set_freq_corr($corr29, 29)
+self.$(id).set_gain($gain29, 29)
+self.$(id).set_if_gain($if_gain29, 29)
+self.$(id).set_bb_gain($bb_gain29, 29)
+self.$(id).set_antenna($ant29, 29)
+self.$(id).set_bandwidth($bw29, 29)
+#end if
+#if $nchan() > 30
+self.$(id).set_center_freq($freq30, 30)
+self.$(id).set_freq_corr($corr30, 30)
+self.$(id).set_gain($gain30, 30)
+self.$(id).set_if_gain($if_gain30, 30)
+self.$(id).set_bb_gain($bb_gain30, 30)
+self.$(id).set_antenna($ant30, 30)
+self.$(id).set_bandwidth($bw30, 30)
+#end if
+#if $nchan() > 31
+self.$(id).set_center_freq($freq31, 31)
+self.$(id).set_freq_corr($corr31, 31)
+self.$(id).set_gain($gain31, 31)
+self.$(id).set_if_gain($if_gain31, 31)
+self.$(id).set_bb_gain($bb_gain31, 31)
+self.$(id).set_antenna($ant31, 31)
+self.$(id).set_bandwidth($bw31, 31)
+#end if
+  </make>
+  <callback>set_sample_rate($sample_rate)</callback>
+  <callback>set_center_freq($freq0, 0)</callback>
+  <callback>set_freq_corr($corr0, 0)</callback>
+  <callback>set_gain($gain0, 0)</callback>
+  <callback>set_if_gain($if_gain0, 0)</callback>
+  <callback>set_bb_gain($bb_gain0, 0)</callback>
+  <callback>set_antenna($ant0, 0)</callback>
+  <callback>set_bandwidth($bw0, 0)</callback>
+  <callback>set_center_freq($freq1, 1)</callback>
+  <callback>set_freq_corr($corr1, 1)</callback>
+  <callback>set_gain($gain1, 1)</callback>
+  <callback>set_if_gain($if_gain1, 1)</callback>
+  <callback>set_bb_gain($bb_gain1, 1)</callback>
+  <callback>set_antenna($ant1, 1)</callback>
+  <callback>set_bandwidth($bw1, 1)</callback>
+  <callback>set_center_freq($freq2, 2)</callback>
+  <callback>set_freq_corr($corr2, 2)</callback>
+  <callback>set_gain($gain2, 2)</callback>
+  <callback>set_if_gain($if_gain2, 2)</callback>
+  <callback>set_bb_gain($bb_gain2, 2)</callback>
+  <callback>set_antenna($ant2, 2)</callback>
+  <callback>set_bandwidth($bw2, 2)</callback>
+  <callback>set_center_freq($freq3, 3)</callback>
+  <callback>set_freq_corr($corr3, 3)</callback>
+  <callback>set_gain($gain3, 3)</callback>
+  <callback>set_if_gain($if_gain3, 3)</callback>
+  <callback>set_bb_gain($bb_gain3, 3)</callback>
+  <callback>set_antenna($ant3, 3)</callback>
+  <callback>set_bandwidth($bw3, 3)</callback>
+  <callback>set_center_freq($freq4, 4)</callback>
+  <callback>set_freq_corr($corr4, 4)</callback>
+  <callback>set_gain($gain4, 4)</callback>
+  <callback>set_if_gain($if_gain4, 4)</callback>
+  <callback>set_bb_gain($bb_gain4, 4)</callback>
+  <callback>set_antenna($ant4, 4)</callback>
+  <callback>set_bandwidth($bw4, 4)</callback>
+  <callback>set_center_freq($freq5, 5)</callback>
+  <callback>set_freq_corr($corr5, 5)</callback>
+  <callback>set_gain($gain5, 5)</callback>
+  <callback>set_if_gain($if_gain5, 5)</callback>
+  <callback>set_bb_gain($bb_gain5, 5)</callback>
+  <callback>set_antenna($ant5, 5)</callback>
+  <callback>set_bandwidth($bw5, 5)</callback>
+  <callback>set_center_freq($freq6, 6)</callback>
+  <callback>set_freq_corr($corr6, 6)</callback>
+  <callback>set_gain($gain6, 6)</callback>
+  <callback>set_if_gain($if_gain6, 6)</callback>
+  <callback>set_bb_gain($bb_gain6, 6)</callback>
+  <callback>set_antenna($ant6, 6)</callback>
+  <callback>set_bandwidth($bw6, 6)</callback>
+  <callback>set_center_freq($freq7, 7)</callback>
+  <callback>set_freq_corr($corr7, 7)</callback>
+  <callback>set_gain($gain7, 7)</callback>
+  <callback>set_if_gain($if_gain7, 7)</callback>
+  <callback>set_bb_gain($bb_gain7, 7)</callback>
+  <callback>set_antenna($ant7, 7)</callback>
+  <callback>set_bandwidth($bw7, 7)</callback>
+  <callback>set_center_freq($freq8, 8)</callback>
+  <callback>set_freq_corr($corr8, 8)</callback>
+  <callback>set_gain($gain8, 8)</callback>
+  <callback>set_if_gain($if_gain8, 8)</callback>
+  <callback>set_bb_gain($bb_gain8, 8)</callback>
+  <callback>set_antenna($ant8, 8)</callback>
+  <callback>set_bandwidth($bw8, 8)</callback>
+  <callback>set_center_freq($freq9, 9)</callback>
+  <callback>set_freq_corr($corr9, 9)</callback>
+  <callback>set_gain($gain9, 9)</callback>
+  <callback>set_if_gain($if_gain9, 9)</callback>
+  <callback>set_bb_gain($bb_gain9, 9)</callback>
+  <callback>set_antenna($ant9, 9)</callback>
+  <callback>set_bandwidth($bw9, 9)</callback>
+  <callback>set_center_freq($freq10, 10)</callback>
+  <callback>set_freq_corr($corr10, 10)</callback>
+  <callback>set_gain($gain10, 10)</callback>
+  <callback>set_if_gain($if_gain10, 10)</callback>
+  <callback>set_bb_gain($bb_gain10, 10)</callback>
+  <callback>set_antenna($ant10, 10)</callback>
+  <callback>set_bandwidth($bw10, 10)</callback>
+  <callback>set_center_freq($freq11, 11)</callback>
+  <callback>set_freq_corr($corr11, 11)</callback>
+  <callback>set_gain($gain11, 11)</callback>
+  <callback>set_if_gain($if_gain11, 11)</callback>
+  <callback>set_bb_gain($bb_gain11, 11)</callback>
+  <callback>set_antenna($ant11, 11)</callback>
+  <callback>set_bandwidth($bw11, 11)</callback>
+  <callback>set_center_freq($freq12, 12)</callback>
+  <callback>set_freq_corr($corr12, 12)</callback>
+  <callback>set_gain($gain12, 12)</callback>
+  <callback>set_if_gain($if_gain12, 12)</callback>
+  <callback>set_bb_gain($bb_gain12, 12)</callback>
+  <callback>set_antenna($ant12, 12)</callback>
+  <callback>set_bandwidth($bw12, 12)</callback>
+  <callback>set_center_freq($freq13, 13)</callback>
+  <callback>set_freq_corr($corr13, 13)</callback>
+  <callback>set_gain($gain13, 13)</callback>
+  <callback>set_if_gain($if_gain13, 13)</callback>
+  <callback>set_bb_gain($bb_gain13, 13)</callback>
+  <callback>set_antenna($ant13, 13)</callback>
+  <callback>set_bandwidth($bw13, 13)</callback>
+  <callback>set_center_freq($freq14, 14)</callback>
+  <callback>set_freq_corr($corr14, 14)</callback>
+  <callback>set_gain($gain14, 14)</callback>
+  <callback>set_if_gain($if_gain14, 14)</callback>
+  <callback>set_bb_gain($bb_gain14, 14)</callback>
+  <callback>set_antenna($ant14, 14)</callback>
+  <callback>set_bandwidth($bw14, 14)</callback>
+  <callback>set_center_freq($freq15, 15)</callback>
+  <callback>set_freq_corr($corr15, 15)</callback>
+  <callback>set_gain($gain15, 15)</callback>
+  <callback>set_if_gain($if_gain15, 15)</callback>
+  <callback>set_bb_gain($bb_gain15, 15)</callback>
+  <callback>set_antenna($ant15, 15)</callback>
+  <callback>set_bandwidth($bw15, 15)</callback>
+  <callback>set_center_freq($freq16, 16)</callback>
+  <callback>set_freq_corr($corr16, 16)</callback>
+  <callback>set_gain($gain16, 16)</callback>
+  <callback>set_if_gain($if_gain16, 16)</callback>
+  <callback>set_bb_gain($bb_gain16, 16)</callback>
+  <callback>set_antenna($ant16, 16)</callback>
+  <callback>set_bandwidth($bw16, 16)</callback>
+  <callback>set_center_freq($freq17, 17)</callback>
+  <callback>set_freq_corr($corr17, 17)</callback>
+  <callback>set_gain($gain17, 17)</callback>
+  <callback>set_if_gain($if_gain17, 17)</callback>
+  <callback>set_bb_gain($bb_gain17, 17)</callback>
+  <callback>set_antenna($ant17, 17)</callback>
+  <callback>set_bandwidth($bw17, 17)</callback>
+  <callback>set_center_freq($freq18, 18)</callback>
+  <callback>set_freq_corr($corr18, 18)</callback>
+  <callback>set_gain($gain18, 18)</callback>
+  <callback>set_if_gain($if_gain18, 18)</callback>
+  <callback>set_bb_gain($bb_gain18, 18)</callback>
+  <callback>set_antenna($ant18, 18)</callback>
+  <callback>set_bandwidth($bw18, 18)</callback>
+  <callback>set_center_freq($freq19, 19)</callback>
+  <callback>set_freq_corr($corr19, 19)</callback>
+  <callback>set_gain($gain19, 19)</callback>
+  <callback>set_if_gain($if_gain19, 19)</callback>
+  <callback>set_bb_gain($bb_gain19, 19)</callback>
+  <callback>set_antenna($ant19, 19)</callback>
+  <callback>set_bandwidth($bw19, 19)</callback>
+  <callback>set_center_freq($freq20, 20)</callback>
+  <callback>set_freq_corr($corr20, 20)</callback>
+  <callback>set_gain($gain20, 20)</callback>
+  <callback>set_if_gain($if_gain20, 20)</callback>
+  <callback>set_bb_gain($bb_gain20, 20)</callback>
+  <callback>set_antenna($ant20, 20)</callback>
+  <callback>set_bandwidth($bw20, 20)</callback>
+  <callback>set_center_freq($freq21, 21)</callback>
+  <callback>set_freq_corr($corr21, 21)</callback>
+  <callback>set_gain($gain21, 21)</callback>
+  <callback>set_if_gain($if_gain21, 21)</callback>
+  <callback>set_bb_gain($bb_gain21, 21)</callback>
+  <callback>set_antenna($ant21, 21)</callback>
+  <callback>set_bandwidth($bw21, 21)</callback>
+  <callback>set_center_freq($freq22, 22)</callback>
+  <callback>set_freq_corr($corr22, 22)</callback>
+  <callback>set_gain($gain22, 22)</callback>
+  <callback>set_if_gain($if_gain22, 22)</callback>
+  <callback>set_bb_gain($bb_gain22, 22)</callback>
+  <callback>set_antenna($ant22, 22)</callback>
+  <callback>set_bandwidth($bw22, 22)</callback>
+  <callback>set_center_freq($freq23, 23)</callback>
+  <callback>set_freq_corr($corr23, 23)</callback>
+  <callback>set_gain($gain23, 23)</callback>
+  <callback>set_if_gain($if_gain23, 23)</callback>
+  <callback>set_bb_gain($bb_gain23, 23)</callback>
+  <callback>set_antenna($ant23, 23)</callback>
+  <callback>set_bandwidth($bw23, 23)</callback>
+  <callback>set_center_freq($freq24, 24)</callback>
+  <callback>set_freq_corr($corr24, 24)</callback>
+  <callback>set_gain($gain24, 24)</callback>
+  <callback>set_if_gain($if_gain24, 24)</callback>
+  <callback>set_bb_gain($bb_gain24, 24)</callback>
+  <callback>set_antenna($ant24, 24)</callback>
+  <callback>set_bandwidth($bw24, 24)</callback>
+  <callback>set_center_freq($freq25, 25)</callback>
+  <callback>set_freq_corr($corr25, 25)</callback>
+  <callback>set_gain($gain25, 25)</callback>
+  <callback>set_if_gain($if_gain25, 25)</callback>
+  <callback>set_bb_gain($bb_gain25, 25)</callback>
+  <callback>set_antenna($ant25, 25)</callback>
+  <callback>set_bandwidth($bw25, 25)</callback>
+  <callback>set_center_freq($freq26, 26)</callback>
+  <callback>set_freq_corr($corr26, 26)</callback>
+  <callback>set_gain($gain26, 26)</callback>
+  <callback>set_if_gain($if_gain26, 26)</callback>
+  <callback>set_bb_gain($bb_gain26, 26)</callback>
+  <callback>set_antenna($ant26, 26)</callback>
+  <callback>set_bandwidth($bw26, 26)</callback>
+  <callback>set_center_freq($freq27, 27)</callback>
+  <callback>set_freq_corr($corr27, 27)</callback>
+  <callback>set_gain($gain27, 27)</callback>
+  <callback>set_if_gain($if_gain27, 27)</callback>
+  <callback>set_bb_gain($bb_gain27, 27)</callback>
+  <callback>set_antenna($ant27, 27)</callback>
+  <callback>set_bandwidth($bw27, 27)</callback>
+  <callback>set_center_freq($freq28, 28)</callback>
+  <callback>set_freq_corr($corr28, 28)</callback>
+  <callback>set_gain($gain28, 28)</callback>
+  <callback>set_if_gain($if_gain28, 28)</callback>
+  <callback>set_bb_gain($bb_gain28, 28)</callback>
+  <callback>set_antenna($ant28, 28)</callback>
+  <callback>set_bandwidth($bw28, 28)</callback>
+  <callback>set_center_freq($freq29, 29)</callback>
+  <callback>set_freq_corr($corr29, 29)</callback>
+  <callback>set_gain($gain29, 29)</callback>
+  <callback>set_if_gain($if_gain29, 29)</callback>
+  <callback>set_bb_gain($bb_gain29, 29)</callback>
+  <callback>set_antenna($ant29, 29)</callback>
+  <callback>set_bandwidth($bw29, 29)</callback>
+  <callback>set_center_freq($freq30, 30)</callback>
+  <callback>set_freq_corr($corr30, 30)</callback>
+  <callback>set_gain($gain30, 30)</callback>
+  <callback>set_if_gain($if_gain30, 30)</callback>
+  <callback>set_bb_gain($bb_gain30, 30)</callback>
+  <callback>set_antenna($ant30, 30)</callback>
+  <callback>set_bandwidth($bw30, 30)</callback>
+  <callback>set_center_freq($freq31, 31)</callback>
+  <callback>set_freq_corr($corr31, 31)</callback>
+  <callback>set_gain($gain31, 31)</callback>
+  <callback>set_if_gain($if_gain31, 31)</callback>
+  <callback>set_bb_gain($bb_gain31, 31)</callback>
+  <callback>set_antenna($ant31, 31)</callback>
+  <callback>set_bandwidth($bw31, 31)</callback>
+  <param>
+    <name>Input Type</name>
+    <key>type</key>
+    <type>enum</type>
+    <option>
+      <name>Complex float32</name>
+      <key>fc32</key>
+      <opt>type:fc32</opt>
+    </option>
+  </param>
+  <param>
+    <name>Device Arguments</name>
+    <key>args</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if $args()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Sync</name>
+    <key>sync</key>
+    <value></value>
+    <type>enum</type>
+    <hide>#if $sync() then 'none' else 'part'#</hide>
+    <option>
+      <name>unknown PPS</name>
+      <key>sync</key>
+    </option>
+    <option>
+      <name>PC Clock</name>
+      <key>pc_clock</key>
+    </option>
+    <option>
+      <name>don't sync</name>
+      <key></key>
+    </option>
+  </param>
+  <param>
+    <name>Num Mboards</name>
+    <key>num_mboards</key>
+    <value>1</value>
+    <type>int</type>
+    <hide>part</hide>
+    <option>
+      <name>1</name>
+      <key>1</key>
+    </option>
+    <option>
+      <name>2</name>
+      <key>2</key>
+    </option>
+    <option>
+      <name>3</name>
+      <key>3</key>
+    </option>
+    <option>
+      <name>4</name>
+      <key>4</key>
+    </option>
+    <option>
+      <name>5</name>
+      <key>5</key>
+    </option>
+    <option>
+      <name>6</name>
+      <key>6</key>
+    </option>
+    <option>
+      <name>7</name>
+      <key>7</key>
+    </option>
+    <option>
+      <name>8</name>
+      <key>8</key>
+    </option>
+  </param>
+  <param>
+    <name>Mb0: Clock Source</name>
+    <key>clock_source0</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 0
+        all
+      #elif $clock_source0()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb0: Time Source</name>
+    <key>time_source0</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 0
+        all
+      #elif $time_source0()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb1: Clock Source</name>
+    <key>clock_source1</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 1
+        all
+      #elif $clock_source1()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb1: Time Source</name>
+    <key>time_source1</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 1
+        all
+      #elif $time_source1()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb2: Clock Source</name>
+    <key>clock_source2</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 2
+        all
+      #elif $clock_source2()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb2: Time Source</name>
+    <key>time_source2</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 2
+        all
+      #elif $time_source2()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb3: Clock Source</name>
+    <key>clock_source3</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 3
+        all
+      #elif $clock_source3()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb3: Time Source</name>
+    <key>time_source3</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 3
+        all
+      #elif $time_source3()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb4: Clock Source</name>
+    <key>clock_source4</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 4
+        all
+      #elif $clock_source4()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb4: Time Source</name>
+    <key>time_source4</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 4
+        all
+      #elif $time_source4()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb5: Clock Source</name>
+    <key>clock_source5</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 5
+        all
+      #elif $clock_source5()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb5: Time Source</name>
+    <key>time_source5</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 5
+        all
+      #elif $time_source5()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb6: Clock Source</name>
+    <key>clock_source6</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 6
+        all
+      #elif $clock_source6()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb6: Time Source</name>
+    <key>time_source6</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 6
+        all
+      #elif $time_source6()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb7: Clock Source</name>
+    <key>clock_source7</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 7
+        all
+      #elif $clock_source7()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>Internal</name><key>internal</key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>External 1PPS</name><key>external_1pps</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Mb7: Time Source</name>
+    <key>time_source7</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $num_mboards() > 7
+        all
+      #elif $time_source7()
+        none
+      #else
+        part
+      #end if
+    </hide>
+    <option><name>Default</name><key></key></option>
+    <option><name>External</name><key>external</key></option>
+    <option><name>MIMO Cable</name><key>mimo</key></option>
+    <option><name>O/B GPSDO</name><key>gpsdo</key></option>
+  </param>
+  <param>
+    <name>Num Channels</name>
+    <key>nchan</key>
+    <value>1</value>
+    <type>int</type>
+    <option>
+      <name>1</name>
+      <key>1</key>
+    </option>
+    <option>
+      <name>2</name>
+      <key>2</key>
+    </option>
+    <option>
+      <name>3</name>
+      <key>3</key>
+    </option>
+    <option>
+      <name>4</name>
+      <key>4</key>
+    </option>
+    <option>
+      <name>5</name>
+      <key>5</key>
+    </option>
+    <option>
+      <name>6</name>
+      <key>6</key>
+    </option>
+    <option>
+      <name>7</name>
+      <key>7</key>
+    </option>
+    <option>
+      <name>8</name>
+      <key>8</key>
+    </option>
+    <option>
+      <name>9</name>
+      <key>9</key>
+    </option>
+    <option>
+      <name>10</name>
+      <key>10</key>
+    </option>
+    <option>
+      <name>11</name>
+      <key>11</key>
+    </option>
+    <option>
+      <name>12</name>
+      <key>12</key>
+    </option>
+    <option>
+      <name>13</name>
+      <key>13</key>
+    </option>
+    <option>
+      <name>14</name>
+      <key>14</key>
+    </option>
+    <option>
+      <name>15</name>
+      <key>15</key>
+    </option>
+    <option>
+      <name>16</name>
+      <key>16</key>
+    </option>
+    <option>
+      <name>17</name>
+      <key>17</key>
+    </option>
+    <option>
+      <name>18</name>
+      <key>18</key>
+    </option>
+    <option>
+      <name>19</name>
+      <key>19</key>
+    </option>
+    <option>
+      <name>20</name>
+      <key>20</key>
+    </option>
+    <option>
+      <name>21</name>
+      <key>21</key>
+    </option>
+    <option>
+      <name>22</name>
+      <key>22</key>
+    </option>
+    <option>
+      <name>23</name>
+      <key>23</key>
+    </option>
+    <option>
+      <name>24</name>
+      <key>24</key>
+    </option>
+    <option>
+      <name>25</name>
+      <key>25</key>
+    </option>
+    <option>
+      <name>26</name>
+      <key>26</key>
+    </option>
+    <option>
+      <name>27</name>
+      <key>27</key>
+    </option>
+    <option>
+      <name>28</name>
+      <key>28</key>
+    </option>
+    <option>
+      <name>29</name>
+      <key>29</key>
+    </option>
+    <option>
+      <name>30</name>
+      <key>30</key>
+    </option>
+    <option>
+      <name>31</name>
+      <key>31</key>
+    </option>
+    <option>
+      <name>32</name>
+      <key>32</key>
+    </option>
+  </param>
+  <param>
+    <name>Sample Rate (sps)</name>
+    <key>sample_rate</key>
+    <value>samp_rate</value>
+    <type>real</type>
+  </param>
+  
+  <param>
+    <name>Ch0: Frequency (Hz)</name>
+    <key>freq0</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 0 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch0: Freq. Corr. (ppm)</name>
+    <key>corr0</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 0 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch0: RF Gain (dB)</name>
+    <key>gain0</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 0 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch0: IF Gain (dB)</name>
+    <key>if_gain0</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 0 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch0: BB Gain (dB)</name>
+    <key>bb_gain0</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 0 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch0: Antenna</name>
+    <key>ant0</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 0
+        all
+      #elif $ant0()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch0: Bandwidth (Hz)</name>
+    <key>bw0</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 0
+        all
+      #elif $bw0()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch1: Frequency (Hz)</name>
+    <key>freq1</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 1 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch1: Freq. Corr. (ppm)</name>
+    <key>corr1</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 1 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch1: RF Gain (dB)</name>
+    <key>gain1</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 1 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch1: IF Gain (dB)</name>
+    <key>if_gain1</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 1 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch1: BB Gain (dB)</name>
+    <key>bb_gain1</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 1 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch1: Antenna</name>
+    <key>ant1</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 1
+        all
+      #elif $ant1()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch1: Bandwidth (Hz)</name>
+    <key>bw1</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 1
+        all
+      #elif $bw1()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch2: Frequency (Hz)</name>
+    <key>freq2</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 2 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch2: Freq. Corr. (ppm)</name>
+    <key>corr2</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 2 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch2: RF Gain (dB)</name>
+    <key>gain2</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 2 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch2: IF Gain (dB)</name>
+    <key>if_gain2</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 2 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch2: BB Gain (dB)</name>
+    <key>bb_gain2</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 2 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch2: Antenna</name>
+    <key>ant2</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 2
+        all
+      #elif $ant2()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch2: Bandwidth (Hz)</name>
+    <key>bw2</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 2
+        all
+      #elif $bw2()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch3: Frequency (Hz)</name>
+    <key>freq3</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 3 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch3: Freq. Corr. (ppm)</name>
+    <key>corr3</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 3 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch3: RF Gain (dB)</name>
+    <key>gain3</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 3 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch3: IF Gain (dB)</name>
+    <key>if_gain3</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 3 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch3: BB Gain (dB)</name>
+    <key>bb_gain3</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 3 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch3: Antenna</name>
+    <key>ant3</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 3
+        all
+      #elif $ant3()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch3: Bandwidth (Hz)</name>
+    <key>bw3</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 3
+        all
+      #elif $bw3()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch4: Frequency (Hz)</name>
+    <key>freq4</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 4 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch4: Freq. Corr. (ppm)</name>
+    <key>corr4</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 4 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch4: RF Gain (dB)</name>
+    <key>gain4</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 4 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch4: IF Gain (dB)</name>
+    <key>if_gain4</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 4 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch4: BB Gain (dB)</name>
+    <key>bb_gain4</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 4 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch4: Antenna</name>
+    <key>ant4</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 4
+        all
+      #elif $ant4()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch4: Bandwidth (Hz)</name>
+    <key>bw4</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 4
+        all
+      #elif $bw4()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch5: Frequency (Hz)</name>
+    <key>freq5</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 5 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch5: Freq. Corr. (ppm)</name>
+    <key>corr5</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 5 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch5: RF Gain (dB)</name>
+    <key>gain5</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 5 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch5: IF Gain (dB)</name>
+    <key>if_gain5</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 5 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch5: BB Gain (dB)</name>
+    <key>bb_gain5</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 5 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch5: Antenna</name>
+    <key>ant5</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 5
+        all
+      #elif $ant5()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch5: Bandwidth (Hz)</name>
+    <key>bw5</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 5
+        all
+      #elif $bw5()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch6: Frequency (Hz)</name>
+    <key>freq6</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 6 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch6: Freq. Corr. (ppm)</name>
+    <key>corr6</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 6 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch6: RF Gain (dB)</name>
+    <key>gain6</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 6 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch6: IF Gain (dB)</name>
+    <key>if_gain6</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 6 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch6: BB Gain (dB)</name>
+    <key>bb_gain6</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 6 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch6: Antenna</name>
+    <key>ant6</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 6
+        all
+      #elif $ant6()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch6: Bandwidth (Hz)</name>
+    <key>bw6</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 6
+        all
+      #elif $bw6()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch7: Frequency (Hz)</name>
+    <key>freq7</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 7 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch7: Freq. Corr. (ppm)</name>
+    <key>corr7</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 7 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch7: RF Gain (dB)</name>
+    <key>gain7</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 7 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch7: IF Gain (dB)</name>
+    <key>if_gain7</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 7 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch7: BB Gain (dB)</name>
+    <key>bb_gain7</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 7 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch7: Antenna</name>
+    <key>ant7</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 7
+        all
+      #elif $ant7()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch7: Bandwidth (Hz)</name>
+    <key>bw7</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 7
+        all
+      #elif $bw7()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch8: Frequency (Hz)</name>
+    <key>freq8</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 8 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch8: Freq. Corr. (ppm)</name>
+    <key>corr8</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 8 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch8: RF Gain (dB)</name>
+    <key>gain8</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 8 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch8: IF Gain (dB)</name>
+    <key>if_gain8</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 8 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch8: BB Gain (dB)</name>
+    <key>bb_gain8</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 8 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch8: Antenna</name>
+    <key>ant8</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 8
+        all
+      #elif $ant8()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch8: Bandwidth (Hz)</name>
+    <key>bw8</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 8
+        all
+      #elif $bw8()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch9: Frequency (Hz)</name>
+    <key>freq9</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 9 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch9: Freq. Corr. (ppm)</name>
+    <key>corr9</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 9 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch9: RF Gain (dB)</name>
+    <key>gain9</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 9 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch9: IF Gain (dB)</name>
+    <key>if_gain9</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 9 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch9: BB Gain (dB)</name>
+    <key>bb_gain9</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 9 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch9: Antenna</name>
+    <key>ant9</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 9
+        all
+      #elif $ant9()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch9: Bandwidth (Hz)</name>
+    <key>bw9</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 9
+        all
+      #elif $bw9()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch10: Frequency (Hz)</name>
+    <key>freq10</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 10 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch10: Freq. Corr. (ppm)</name>
+    <key>corr10</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 10 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch10: RF Gain (dB)</name>
+    <key>gain10</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 10 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch10: IF Gain (dB)</name>
+    <key>if_gain10</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 10 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch10: BB Gain (dB)</name>
+    <key>bb_gain10</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 10 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch10: Antenna</name>
+    <key>ant10</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 10
+        all
+      #elif $ant10()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch10: Bandwidth (Hz)</name>
+    <key>bw10</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 10
+        all
+      #elif $bw10()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch11: Frequency (Hz)</name>
+    <key>freq11</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 11 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch11: Freq. Corr. (ppm)</name>
+    <key>corr11</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 11 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch11: RF Gain (dB)</name>
+    <key>gain11</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 11 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch11: IF Gain (dB)</name>
+    <key>if_gain11</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 11 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch11: BB Gain (dB)</name>
+    <key>bb_gain11</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 11 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch11: Antenna</name>
+    <key>ant11</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 11
+        all
+      #elif $ant11()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch11: Bandwidth (Hz)</name>
+    <key>bw11</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 11
+        all
+      #elif $bw11()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch12: Frequency (Hz)</name>
+    <key>freq12</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 12 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch12: Freq. Corr. (ppm)</name>
+    <key>corr12</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 12 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch12: RF Gain (dB)</name>
+    <key>gain12</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 12 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch12: IF Gain (dB)</name>
+    <key>if_gain12</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 12 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch12: BB Gain (dB)</name>
+    <key>bb_gain12</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 12 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch12: Antenna</name>
+    <key>ant12</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 12
+        all
+      #elif $ant12()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch12: Bandwidth (Hz)</name>
+    <key>bw12</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 12
+        all
+      #elif $bw12()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch13: Frequency (Hz)</name>
+    <key>freq13</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 13 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch13: Freq. Corr. (ppm)</name>
+    <key>corr13</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 13 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch13: RF Gain (dB)</name>
+    <key>gain13</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 13 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch13: IF Gain (dB)</name>
+    <key>if_gain13</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 13 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch13: BB Gain (dB)</name>
+    <key>bb_gain13</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 13 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch13: Antenna</name>
+    <key>ant13</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 13
+        all
+      #elif $ant13()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch13: Bandwidth (Hz)</name>
+    <key>bw13</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 13
+        all
+      #elif $bw13()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch14: Frequency (Hz)</name>
+    <key>freq14</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 14 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch14: Freq. Corr. (ppm)</name>
+    <key>corr14</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 14 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch14: RF Gain (dB)</name>
+    <key>gain14</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 14 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch14: IF Gain (dB)</name>
+    <key>if_gain14</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 14 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch14: BB Gain (dB)</name>
+    <key>bb_gain14</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 14 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch14: Antenna</name>
+    <key>ant14</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 14
+        all
+      #elif $ant14()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch14: Bandwidth (Hz)</name>
+    <key>bw14</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 14
+        all
+      #elif $bw14()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch15: Frequency (Hz)</name>
+    <key>freq15</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 15 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch15: Freq. Corr. (ppm)</name>
+    <key>corr15</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 15 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch15: RF Gain (dB)</name>
+    <key>gain15</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 15 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch15: IF Gain (dB)</name>
+    <key>if_gain15</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 15 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch15: BB Gain (dB)</name>
+    <key>bb_gain15</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 15 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch15: Antenna</name>
+    <key>ant15</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 15
+        all
+      #elif $ant15()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch15: Bandwidth (Hz)</name>
+    <key>bw15</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 15
+        all
+      #elif $bw15()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch16: Frequency (Hz)</name>
+    <key>freq16</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 16 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch16: Freq. Corr. (ppm)</name>
+    <key>corr16</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 16 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch16: RF Gain (dB)</name>
+    <key>gain16</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 16 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch16: IF Gain (dB)</name>
+    <key>if_gain16</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 16 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch16: BB Gain (dB)</name>
+    <key>bb_gain16</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 16 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch16: Antenna</name>
+    <key>ant16</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 16
+        all
+      #elif $ant16()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch16: Bandwidth (Hz)</name>
+    <key>bw16</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 16
+        all
+      #elif $bw16()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch17: Frequency (Hz)</name>
+    <key>freq17</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 17 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch17: Freq. Corr. (ppm)</name>
+    <key>corr17</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 17 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch17: RF Gain (dB)</name>
+    <key>gain17</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 17 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch17: IF Gain (dB)</name>
+    <key>if_gain17</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 17 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch17: BB Gain (dB)</name>
+    <key>bb_gain17</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 17 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch17: Antenna</name>
+    <key>ant17</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 17
+        all
+      #elif $ant17()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch17: Bandwidth (Hz)</name>
+    <key>bw17</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 17
+        all
+      #elif $bw17()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch18: Frequency (Hz)</name>
+    <key>freq18</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 18 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch18: Freq. Corr. (ppm)</name>
+    <key>corr18</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 18 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch18: RF Gain (dB)</name>
+    <key>gain18</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 18 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch18: IF Gain (dB)</name>
+    <key>if_gain18</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 18 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch18: BB Gain (dB)</name>
+    <key>bb_gain18</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 18 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch18: Antenna</name>
+    <key>ant18</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 18
+        all
+      #elif $ant18()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch18: Bandwidth (Hz)</name>
+    <key>bw18</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 18
+        all
+      #elif $bw18()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch19: Frequency (Hz)</name>
+    <key>freq19</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 19 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch19: Freq. Corr. (ppm)</name>
+    <key>corr19</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 19 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch19: RF Gain (dB)</name>
+    <key>gain19</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 19 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch19: IF Gain (dB)</name>
+    <key>if_gain19</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 19 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch19: BB Gain (dB)</name>
+    <key>bb_gain19</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 19 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch19: Antenna</name>
+    <key>ant19</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 19
+        all
+      #elif $ant19()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch19: Bandwidth (Hz)</name>
+    <key>bw19</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 19
+        all
+      #elif $bw19()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch20: Frequency (Hz)</name>
+    <key>freq20</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 20 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch20: Freq. Corr. (ppm)</name>
+    <key>corr20</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 20 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch20: RF Gain (dB)</name>
+    <key>gain20</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 20 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch20: IF Gain (dB)</name>
+    <key>if_gain20</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 20 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch20: BB Gain (dB)</name>
+    <key>bb_gain20</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 20 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch20: Antenna</name>
+    <key>ant20</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 20
+        all
+      #elif $ant20()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch20: Bandwidth (Hz)</name>
+    <key>bw20</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 20
+        all
+      #elif $bw20()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch21: Frequency (Hz)</name>
+    <key>freq21</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 21 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch21: Freq. Corr. (ppm)</name>
+    <key>corr21</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 21 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch21: RF Gain (dB)</name>
+    <key>gain21</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 21 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch21: IF Gain (dB)</name>
+    <key>if_gain21</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 21 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch21: BB Gain (dB)</name>
+    <key>bb_gain21</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 21 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch21: Antenna</name>
+    <key>ant21</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 21
+        all
+      #elif $ant21()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch21: Bandwidth (Hz)</name>
+    <key>bw21</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 21
+        all
+      #elif $bw21()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch22: Frequency (Hz)</name>
+    <key>freq22</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 22 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch22: Freq. Corr. (ppm)</name>
+    <key>corr22</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 22 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch22: RF Gain (dB)</name>
+    <key>gain22</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 22 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch22: IF Gain (dB)</name>
+    <key>if_gain22</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 22 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch22: BB Gain (dB)</name>
+    <key>bb_gain22</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 22 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch22: Antenna</name>
+    <key>ant22</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 22
+        all
+      #elif $ant22()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch22: Bandwidth (Hz)</name>
+    <key>bw22</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 22
+        all
+      #elif $bw22()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch23: Frequency (Hz)</name>
+    <key>freq23</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 23 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch23: Freq. Corr. (ppm)</name>
+    <key>corr23</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 23 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch23: RF Gain (dB)</name>
+    <key>gain23</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 23 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch23: IF Gain (dB)</name>
+    <key>if_gain23</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 23 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch23: BB Gain (dB)</name>
+    <key>bb_gain23</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 23 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch23: Antenna</name>
+    <key>ant23</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 23
+        all
+      #elif $ant23()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch23: Bandwidth (Hz)</name>
+    <key>bw23</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 23
+        all
+      #elif $bw23()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch24: Frequency (Hz)</name>
+    <key>freq24</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 24 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch24: Freq. Corr. (ppm)</name>
+    <key>corr24</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 24 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch24: RF Gain (dB)</name>
+    <key>gain24</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 24 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch24: IF Gain (dB)</name>
+    <key>if_gain24</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 24 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch24: BB Gain (dB)</name>
+    <key>bb_gain24</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 24 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch24: Antenna</name>
+    <key>ant24</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 24
+        all
+      #elif $ant24()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch24: Bandwidth (Hz)</name>
+    <key>bw24</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 24
+        all
+      #elif $bw24()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch25: Frequency (Hz)</name>
+    <key>freq25</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 25 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch25: Freq. Corr. (ppm)</name>
+    <key>corr25</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 25 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch25: RF Gain (dB)</name>
+    <key>gain25</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 25 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch25: IF Gain (dB)</name>
+    <key>if_gain25</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 25 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch25: BB Gain (dB)</name>
+    <key>bb_gain25</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 25 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch25: Antenna</name>
+    <key>ant25</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 25
+        all
+      #elif $ant25()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch25: Bandwidth (Hz)</name>
+    <key>bw25</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 25
+        all
+      #elif $bw25()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch26: Frequency (Hz)</name>
+    <key>freq26</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 26 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch26: Freq. Corr. (ppm)</name>
+    <key>corr26</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 26 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch26: RF Gain (dB)</name>
+    <key>gain26</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 26 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch26: IF Gain (dB)</name>
+    <key>if_gain26</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 26 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch26: BB Gain (dB)</name>
+    <key>bb_gain26</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 26 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch26: Antenna</name>
+    <key>ant26</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 26
+        all
+      #elif $ant26()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch26: Bandwidth (Hz)</name>
+    <key>bw26</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 26
+        all
+      #elif $bw26()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch27: Frequency (Hz)</name>
+    <key>freq27</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 27 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch27: Freq. Corr. (ppm)</name>
+    <key>corr27</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 27 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch27: RF Gain (dB)</name>
+    <key>gain27</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 27 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch27: IF Gain (dB)</name>
+    <key>if_gain27</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 27 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch27: BB Gain (dB)</name>
+    <key>bb_gain27</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 27 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch27: Antenna</name>
+    <key>ant27</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 27
+        all
+      #elif $ant27()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch27: Bandwidth (Hz)</name>
+    <key>bw27</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 27
+        all
+      #elif $bw27()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch28: Frequency (Hz)</name>
+    <key>freq28</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 28 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch28: Freq. Corr. (ppm)</name>
+    <key>corr28</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 28 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch28: RF Gain (dB)</name>
+    <key>gain28</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 28 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch28: IF Gain (dB)</name>
+    <key>if_gain28</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 28 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch28: BB Gain (dB)</name>
+    <key>bb_gain28</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 28 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch28: Antenna</name>
+    <key>ant28</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 28
+        all
+      #elif $ant28()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch28: Bandwidth (Hz)</name>
+    <key>bw28</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 28
+        all
+      #elif $bw28()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch29: Frequency (Hz)</name>
+    <key>freq29</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 29 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch29: Freq. Corr. (ppm)</name>
+    <key>corr29</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 29 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch29: RF Gain (dB)</name>
+    <key>gain29</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 29 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch29: IF Gain (dB)</name>
+    <key>if_gain29</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 29 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch29: BB Gain (dB)</name>
+    <key>bb_gain29</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 29 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch29: Antenna</name>
+    <key>ant29</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 29
+        all
+      #elif $ant29()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch29: Bandwidth (Hz)</name>
+    <key>bw29</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 29
+        all
+      #elif $bw29()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch30: Frequency (Hz)</name>
+    <key>freq30</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 30 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch30: Freq. Corr. (ppm)</name>
+    <key>corr30</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 30 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch30: RF Gain (dB)</name>
+    <key>gain30</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 30 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch30: IF Gain (dB)</name>
+    <key>if_gain30</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 30 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch30: BB Gain (dB)</name>
+    <key>bb_gain30</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 30 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch30: Antenna</name>
+    <key>ant30</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 30
+        all
+      #elif $ant30()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch30: Bandwidth (Hz)</name>
+    <key>bw30</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 30
+        all
+      #elif $bw30()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <param>
+    <name>Ch31: Frequency (Hz)</name>
+    <key>freq31</key>
+    <value>100e6</value>
+    <type>real</type>
+    <hide>#if $nchan() > 31 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+  <name>Ch31: Freq. Corr. (ppm)</name>
+    <key>corr31</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>#if $nchan() > 31 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch31: RF Gain (dB)</name>
+    <key>gain31</key>
+    <value>10</value>
+    <type>real</type>
+    <hide>#if $nchan() > 31 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch31: IF Gain (dB)</name>
+    <key>if_gain31</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 31 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch31: BB Gain (dB)</name>
+    <key>bb_gain31</key>
+    <value>20</value>
+    <type>real</type>
+    <hide>#if $nchan() > 31 then 'none' else 'all'#</hide>
+  </param>
+  <param>
+    <name>Ch31: Antenna</name>
+    <key>ant31</key>
+    <value></value>
+    <type>string</type>
+    <hide>
+      #if not $nchan() > 31
+        all
+      #elif $ant31()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+  <param>
+    <name>Ch31: Bandwidth (Hz)</name>
+    <key>bw31</key>
+    <value>0</value>
+    <type>real</type>
+    <hide>
+      #if not $nchan() > 31
+        all
+      #elif $bw31()
+        none
+      #else
+        part
+      #end if
+    </hide>
+  </param>
+
+  <check>32 >= $nchan</check>
+  <check>$nchan > 0</check>
+  <check>8 >= $num_mboards</check>
+  <check>$num_mboards > 0</check>
+  <check>$nchan >= $num_mboards</check>
+  <sink>
+    <name>in</name>
+    <type>$type.type</type>
+    <nports>$nchan</nports>
+  </sink>
+  <doc>
+The osmocom sink block:
+
+While primarily being developed for the OsmoSDR hardware, this block as well supports:
+
+ * gnuradio .cfile output through libgnuradio-blocks
+ * CCCamp 2015 rad1o Badge through libhackrf
+ * Great Scott Gadgets HackRF through libhackrf
+ * Nuand LLC bladeRF through libbladeRF library
+ * Ettus USRP Devices through Ettus UHD library
+ * Fairwaves UmTRX through Fairwaves' fork of UHD
+ * Red Pitaya SDR transceiver (http://bazaar.redpitaya.com)
+ * FreeSRP through libfreesrp library
+
+By using the osmocom sink block you can take advantage of a common software api in your application(s) independent of the underlying radio hardware.
+
+Output Type:
+This parameter controls the data type of the stream in gnuradio. Only complex float32 samples are supported at the moment.
+
+Device Arguments:
+The device argument is a comma delimited string used to locate devices on your system. Device arguments for multiple devices may be given by separating them with a space.
+Use the device id or name/serial (if applicable) to specify a certain device or list of devices. If left blank, the first device found will be used.
+
+Examples:
+
+Optional arguments are placed into [] brackets, remove the brackets before using them! Specific variable values are separated with a |, choose one of them. Variable values containing spaces shall be enclosed in '' as demonstrated in examples section below.
+Lines ending with ... mean it's possible to bind devices together by specifying multiple device arguments separated with a space.
+
+  file='/path/to/your file',rate=1e6[,freq=100e6][,append=true][,throttle=true] ...
+  redpitaya=192.168.1.100[:1001]
+  freesrp=0[,fx3='path/to/fx3.img',fpga='path/to/fpga.bin',loopback]
+  hackrf=0[,buffers=32][,bias=0|1][,bias_tx=0|1]
+  bladerf=0[,tamer=internal|external|external_1pps][,smb=25e6]
+  uhd[,serial=...][,lo_offset=0][,mcr=52e6][,nchan=2][,subdev='\\'B:0 A:0\\''] ...
+
+Num Channels:
+Selects the total number of channels in this multi-device configuration. Required when specifying multiple device arguments.
+
+Sample Rate:
+The sample rate is the number of samples per second output by this block on each channel.
+
+Frequency:
+The center frequency is the frequency the RF chain is tuned to.
+
+Freq. Corr.:
+The frequency correction factor in parts per million (ppm). Set to 0 if unknown.
+
+RF Gain:
+Overall RF gain of the device.
+
+IF Gain:
+Overall intermediate frequency gain of the device.
+This setting is available for RTL-SDR and OsmoSDR devices with E4000 tuners and HackRF in receive and transmit mode. Observations lead to a reasonable gain range from 15 to 30dB.
+
+BB Gain:
+Overall baseband gain of the device.
+This setting is available for HackRF in receive mode. Observations lead to a reasonable gain range from 15 to 30dB.
+
+Antenna:
+For devices with only one antenna, this may be left blank.
+Otherwise, the user should specify one of the possible antenna choices.
+
+Bandwidth:
+Set the bandpass filter on the radio frontend. To use the default (automatic) bandwidth filter setting, this should be zero.
+
+See the OsmoSDR project page for more detailed documentation:
+http://sdr.osmocom.org/trac/wiki/GrOsmoSDR
+http://sdr.osmocom.org/trac/wiki/rtl-sdr
+http://sdr.osmocom.org/trac/
+  </doc>
+</block>
